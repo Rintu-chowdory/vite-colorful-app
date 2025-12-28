@@ -1,0 +1,36 @@
+:root{
+  --bg1: #ff7eb3;
+  --bg2: #7afcff;
+  --card: rgba(255,255,255,0.14);
+  --glass: rgba(255,255,255,0.08);
+}
+*{box-sizing:border-box}
+html,body,#root{height:100%;}
+body{
+  margin:0;
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background: radial-gradient( circle at 10% 20%, var(--bg1) 0%, transparent 20% ),
+              radial-gradient( circle at 90% 80%, var(--bg2) 0%, transparent 20% ),
+              linear-gradient(135deg,#1e3c72 0%, #2a5298 100%);
+  color: #fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:3rem;
+}
+.app-root{width:100%;max-width:1000px}
+.card{background:linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+  padding:2rem;border-radius:16px;backdrop-filter: blur(6px);box-shadow:0 6px 20px rgba(0,0,0,0.35)}
+.title{margin:0;font-size:2rem;letter-spacing:0.5px}
+.subtitle{opacity:0.9;margin-top:0.4rem}
+.controls{margin-top:1rem;display:flex;gap:0.75rem}
+.btn{display:inline-block;padding:0.6rem 1rem;border-radius:10px;background:linear-gradient(90deg,#ffd36e,#ff7eb3);color:#112;margin-weight:700;text-decoration:none;font-weight:600;box-shadow:0 6px 18px rgba(255,126,179,0.16);transform:translateY(0);transition:transform .15s ease}
+.btn:hover{transform:translateY(-3px)}
+.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.12);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1rem;margin-top:1.25rem}
+.tile{background:var(--glass);padding:1rem;border-radius:12px;text-align:center;font-weight:700}
+.footer{margin-top:1.25rem;opacity:0.9;text-align:center}
+
+@media (max-width:600px){
+  .title{font-size:1.4rem}
+}

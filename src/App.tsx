@@ -1,23 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
+import Sidebar from './components/Sidebar'
+import Overview from './components/Overview'
+import Tasks from './components/Tasks'
+import Projects from './components/Projects'
+
+export type View = 'overview' | 'tasks' | 'projects'
 
 export default function App() {
+  const [view, setView] = useState<View>('overview')
+  const [taskCount, setTaskCount] = useState(4)
   return (
-    <div className="app-root">
-      <header className="card">
-        <h1 className="title">Colorful Vite App</h1>
-        <p className="subtitle">A bright, responsive starter built with Vite + React</p>
-        <div className="controls">
-          <a className="btn" href="#" onClick={e => e.preventDefault()}>Get Started</a>
-          <a className="btn ghost" href="#" onClick={e => e.preventDefault()}>Docs</a>
-        </div>
-      </header>
-      <section className="grid">
-        <div className="tile">Fast</div>
-        <div className="tile">Tiny</div>
-        <div className="tile">Responsive</div>
-        <div className="tile">Accessible</div>
-      </section>
-      <footer className="footer">Made with ❤️ — Deploy anywhere</footer>
+    <div className="shell">
+      <Sidebar active={view} onNav={setView} taskCount={taskCount} />
+      <main className="main">
+        {view === 'overview' && <Overview />}
+        {view === 'tasks'    && <Tasks onCountChange={setTaskCount} />}
+        {view === 'projects' && <Projects />}
+      </main>
     </div>
   )
 }
